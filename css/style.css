@@ -43,6 +43,7 @@ button {
     --bg: #eef0ed;
     --bg-soft: #e5e9e7;
     --bg-warm: #d9dfdc;
+
     --white: #f7f8f6;
 
     --text: #303536;
@@ -101,6 +102,7 @@ button {
     justify-content: center;
 
     min-height: 54px;
+
     padding: 0 30px;
 
     border-radius: 100px;
@@ -179,6 +181,7 @@ button {
     align-items: center;
 
     gap: 38px;
+
     margin-left: auto;
 }
 
@@ -200,6 +203,7 @@ button {
     justify-content: center;
 
     min-height: 44px;
+
     padding: 0 23px;
 
     border:
@@ -224,7 +228,7 @@ button {
 
 
 /* =========================================
-   MOBILE MENU BUTTON
+   MOBILE MENU
 ========================================= */
 
 .menu-button {
@@ -250,11 +254,6 @@ button {
     background: var(--text);
 }
 
-
-/* =========================================
-   MOBILE MENU
-========================================= */
-
 .mobile-menu {
     position: fixed;
     inset: 0;
@@ -270,8 +269,7 @@ button {
 
     transform: translateX(100%);
 
-    transition:
-        transform 0.35s ease;
+    transition: transform 0.35s ease;
 }
 
 .mobile-menu.active {
@@ -286,6 +284,7 @@ button {
 
 .mobile-menu__logo {
     font-family: "Playfair Display", serif;
+
     font-size: 25px;
 }
 
@@ -393,6 +392,7 @@ button {
 
 .hero h1 span {
     display: block;
+
     color: var(--accent-dark);
 }
 
@@ -402,6 +402,7 @@ button {
     margin-top: 30px;
 
     font-size: 18px;
+
     line-height: 1.8;
 
     color: var(--text-soft);
@@ -438,6 +439,7 @@ button {
 
 .text-link:hover {
     color: var(--accent-dark);
+
     border-color: var(--accent);
 }
 
@@ -550,6 +552,7 @@ button {
     font-family: "Playfair Display", serif;
 
     font-size: 17px;
+
     line-height: 1.5;
 
     color: var(--text);
@@ -561,9 +564,9 @@ button {
 ========================================= */
 
 .section-heading {
-    max-width: 700px;
+    max-width: 800px;
 
-    margin-bottom: 60px;
+    margin-bottom: 70px;
 }
 
 .section-heading--center {
@@ -598,6 +601,7 @@ button {
 .about {
     background: var(--white);
 }
+
 #about {
     scroll-margin-top: 100px;
 }
@@ -605,19 +609,18 @@ button {
 
 /* =========================================
    ABOUT TOP
-   PHOTO + EDUCATION
 ========================================= */
 
 .about__top {
     display: grid;
 
     grid-template-columns:
-        0.8fr
-        1.2fr;
+        minmax(320px, 0.8fr)
+        minmax(0, 1.2fr);
+
+    gap: 100px;
 
     align-items: start;
-
-    gap: 90px;
 }
 
 
@@ -634,19 +637,17 @@ button {
 
     width: 100%;
 
-    aspect-ratio: 0.88;
+    aspect-ratio: 0.82;
 
     overflow: hidden;
 
     border-radius:
-        25px
-        140px
-        25px
-        25px;
+        22px
+        120px
+        22px
+        22px;
 
     background: var(--bg-warm);
-
-    z-index: 1;
 }
 
 .about__image {
@@ -670,36 +671,17 @@ button {
     transform: scale(1.025);
 }
 
-.about__photo::after {
-    content: "";
-
-    position: absolute;
-
-    width: 90px;
-    height: 90px;
-
-    right: -25px;
-    bottom: -25px;
-
-    border-radius: 50%;
-
-    background:
-        var(--accent-soft);
-
-    z-index: 0;
-}
-
 
 /* =========================================
    ABOUT EDUCATION
 ========================================= */
 
 .about__education {
-    padding-top: 3px;
+    padding-top: 45px;
 }
 
 .about__label {
-    margin-bottom: 26px;
+    margin-bottom: 30px;
 
     font-size: 11px;
     font-weight: 600;
@@ -709,130 +691,90 @@ button {
     color: var(--accent-dark);
 }
 
-.education-list {
-    display: grid;
 
-    border-top:
-        1px solid var(--border);
+/* =========================================
+   EDUCATION LIST
+========================================= */
+
+.education-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 34px;
 }
 
 .education-item {
-    padding: 20px 0;
-
-    border-bottom:
-        1px solid var(--border);
+    padding: 0;
 }
 
 .education-item h3 {
-    max-width: 650px;
+    max-width: 620px;
 
-    font-family: "Inter", sans-serif;
+    margin-bottom: 8px;
 
-    font-size: 16px;
-    line-height: 1.5;
+    font-family: "Playfair Display", serif;
 
-    font-weight: 500;
+    font-size: 25px;
+    font-weight: 400;
+
+    line-height: 1.3;
 
     color: var(--text);
 }
 
 .education-item p {
-    max-width: 600px;
+    max-width: 580px;
 
-    margin-top: 6px;
+    margin: 0;
 
     font-size: 14px;
-    line-height: 1.6;
+
+    line-height: 1.7;
 
     color: var(--text-soft);
 }
 
 
 /* =========================================
-   ABOUT PRINCIPLES
-========================================= */
-
-.about__principles {
-    margin-top: 165px;
-
-    padding-top: 45px;
-
-    border-top:
-        1px solid var(--border);
-}
-
-.about__principles-heading {
-    display: flex;
-
-    align-items: baseline;
-    justify-content: space-between;
-
-    gap: 30px;
-
-    margin-bottom: 30px;
-}
-
-.about__principles-heading .about__label {
-    margin-bottom: 0;
-}
-
-.about__principles-heading h2 {
-    order: 2;
-
-    font-family: "Playfair Display", serif;
-
-    font-size: 30px;
-    font-weight: 400;
-
-    color: var(--text);
-}
-
-
-/* =========================================
-   PRINCIPLES LIST
+   PRINCIPLES
 ========================================= */
 
 .principles-list {
-    padding-top: 45px;
     display: grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
-    border-top:
-        0px solid var(--border);
+    gap: 45px;
 
-    border-bottom:
-        0px solid var(--border);
+    margin-top: 80px;
 }
 
 .principle {
-    padding: 24px 30px 26px 0;
-}
+    padding-top: 28px;
 
-.principle + .principle {
-    padding-left: 30px;
-
-    border-left:
+    border-top:
         1px solid var(--border);
 }
 
 .principle h3 {
-    margin-bottom: 9px;
+    margin-bottom: 12px;
 
-    font-size: 15px;
-    line-height: 1.5;
+    font-family: "Playfair Display", serif;
 
-    font-weight: 500;
+    font-size: 24px;
 
-    color: var(--accent-dark);
+    font-weight: 400;
+
+    color: var(--text);
 }
 
 .principle p {
-    max-width: 360px;
+    max-width: 330px;
 
     font-size: 13px;
-    line-height: 1.7;
+
+    line-height: 1.75;
 
     color: var(--text-soft);
 }
@@ -930,8 +872,7 @@ button {
     display: grid;
 
     grid-template-columns:
-        1fr
-        420px;
+        1fr 420px;
 
     align-items: center;
 
@@ -1069,15 +1010,74 @@ button {
     margin: 25px auto 35px;
 
     font-size: 17px;
+
     line-height: 1.8;
 
     color: #d9e0e1;
 }
 
-.contact-section .button {
+
+/* =========================================
+   CONTACT BUTTONS
+========================================= */
+
+.contact-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-top: 10px;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 11px;
+
+    min-height: 54px;
+
+    padding: 0 28px;
+
+    border-radius: 100px;
+
+    background: #f5f7f5;
+
+    color: #4f6675;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.35);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.contact-button svg {
+    width: 21px;
+    height: 21px;
+
+    flex-shrink: 0;
+
+    fill: currentColor;
+}
+
+.contact-button:hover {
+    transform: translateY(-2px);
+
+    background: #ffffff;
+
     box-shadow:
-        0 12px 30px
-        rgba(30, 43, 48, 0.2);
+        0 10px 25px
+        rgba(30, 43, 48, 0.18);
 }
 
 
@@ -1097,9 +1097,7 @@ button {
     display: grid;
 
     grid-template-columns:
-        1fr
-        auto
-        1fr;
+        1fr auto 1fr;
 
     align-items: center;
 
@@ -1219,34 +1217,16 @@ button {
     /* ABOUT */
 
     .about__top {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            minmax(280px, 0.8fr)
+            minmax(0, 1.2fr);
 
         gap: 55px;
     }
 
-    .about__photo {
-        max-width: 500px;
-    }
-
-    .about__image-wrapper {
-        aspect-ratio: 0.9;
-    }
-
     .principles-list {
-        grid-template-columns: 1fr;
-    }
-
-    .principle {
-        padding: 24px 0;
-    }
-
-    .principle + .principle {
-        padding-left: 0;
-
-        border-left: none;
-
-        border-top:
-            1px solid var(--border);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
 
@@ -1290,7 +1270,7 @@ button {
    MOBILE
 ========================================= */
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
 
     .container {
         width: min(
@@ -1359,7 +1339,6 @@ button {
 
     .hero__quote {
         right: 10px;
-
         bottom: 15px;
 
         width: 220px;
@@ -1388,11 +1367,13 @@ button {
     /* ABOUT */
 
     .about__top {
-        gap: 40px;
+        grid-template-columns: 1fr;
+
+        gap: 50px;
     }
 
     .about__photo {
-        max-width: none;
+        max-width: 500px;
     }
 
     .about__image-wrapper {
@@ -1405,33 +1386,32 @@ button {
             20px;
     }
 
-    .about__photo::after {
-        width: 65px;
-        height: 65px;
-
-        right: -12px;
-        bottom: -12px;
+    .about__education {
+        padding-top: 0;
     }
 
-    .about__principles {
-        margin-top: 50px;
-        padding-top: 35px;
+    .education-list {
+        gap: 30px;
     }
 
-    .about__principles-heading {
-        display: block;
-
-        margin-bottom: 25px;
+    .education-item h3 {
+        font-size: 21px;
     }
 
-    .about__principles-heading h2 {
-        margin-top: 8px;
-
-        font-size: 27px;
+    .education-item p {
+        font-size: 13px;
     }
 
-    .principle {
-        padding: 22px 0;
+    .principles-list {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        margin-top: 60px;
+    }
+
+    .principle p {
+        max-width: none;
     }
 
 
@@ -1471,6 +1451,18 @@ button {
 
     .contact-section p {
         font-size: 16px;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+
+        width: 100%;
+
+        gap: 12px;
+    }
+
+    .contact-button {
+        width: 100%;
     }
 
 
@@ -1541,5 +1533,9 @@ button {
             80px
             18px
             18px;
+    }
+
+    .education-item h3 {
+        font-size: 19px;
     }
 }
