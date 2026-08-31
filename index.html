@@ -759,6 +759,10 @@
                     Контакты
                 </a>
 
+                <a href="#" class="offer-link">
+                    Договор оферты
+                </a>
+
             </div>
 
 
@@ -770,6 +774,249 @@
 
     </footer>
 
+
+
+    <!-- =========================
+         ДОГОВОР ОФЕРТЫ
+         ДОБАВЛЕНО: не изменяет существующие блоки сайта
+    ========================== -->
+
+    <div
+        class="offer-modal"
+        aria-hidden="true"
+    >
+        <div class="offer-modal__top">
+            <button
+                class="offer-modal__close"
+                type="button"
+                aria-label="Закрыть договор оферты"
+            >
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <div class="offer-modal__scroll">
+            <article class="offer-modal__document">
+
+                <div class="offer-modal__eyebrow">
+                    ДОГОВОР ОФЕРТЫ
+                </div>
+
+                <h1>Договор публичной оферты</h1>
+
+                <p class="offer-modal__placeholder">
+                    Здесь будет размещён текст договора оферты.
+                    Пришлите мне готовый текст договора, и я вставлю
+                    его сюда без изменения формулировок.
+                </p>
+
+            </article>
+        </div>
+    </div>
+
+
+    <style>
+        /* =========================================
+           ДОГОВОР ОФЕРТЫ
+           Все стили изолированы от существующего сайта
+        ========================================= */
+
+        .offer-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #eef0ed;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition:
+                opacity 0.25s ease,
+                visibility 0.25s ease;
+        }
+
+        .offer-modal.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .offer-modal__top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 90px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .offer-modal__close {
+            position: absolute;
+            top: 22px;
+            right: 32px;
+            width: 48px;
+            height: 48px;
+            padding: 0;
+            border: 1px solid rgba(30, 40, 38, 0.15);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .offer-modal__close:hover {
+            transform: rotate(90deg);
+            background: #fff;
+        }
+
+        .offer-modal__close span {
+            position: absolute;
+            width: 19px;
+            height: 1px;
+            background: #202827;
+        }
+
+        .offer-modal__close span:first-child {
+            transform: rotate(45deg);
+        }
+
+        .offer-modal__close span:last-child {
+            transform: rotate(-45deg);
+        }
+
+        .offer-modal__scroll {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            box-sizing: border-box;
+            padding: 125px 32px 90px;
+        }
+
+        .offer-modal__document {
+            width: min(820px, 100%);
+            margin: 0 auto;
+        }
+
+        .offer-modal__eyebrow {
+            margin-bottom: 18px;
+            font-family: "Inter", sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            color: #69736f;
+        }
+
+        .offer-modal__document h1 {
+            margin: 0 0 30px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(40px, 6vw, 64px);
+            line-height: 1.08;
+            font-weight: 400;
+            letter-spacing: -0.025em;
+            color: #202827;
+        }
+
+        .offer-modal__placeholder {
+            max-width: 700px;
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #5f6966;
+        }
+
+        @media (max-width: 700px) {
+            .offer-modal__top {
+                height: 76px;
+            }
+
+            .offer-modal__close {
+                top: 16px;
+                right: 16px;
+                width: 44px;
+                height: 44px;
+            }
+
+            .offer-modal__scroll {
+                padding:
+                    100px
+                    20px
+                    70px;
+            }
+
+            .offer-modal__document h1 {
+                font-size: 40px;
+            }
+
+            .offer-modal__placeholder {
+                font-size: 14px;
+                line-height: 1.75;
+            }
+        }
+
+        body.offer-modal-open {
+            overflow: hidden;
+        }
+    </style>
+
+
+    <script>
+        /* =========================================
+           ЛОГИКА ДОГОВОРА ОФЕРТЫ
+        ========================================== */
+
+        (function () {
+            const offerModal = document.querySelector(".offer-modal");
+            const offerLink = document.querySelector(".offer-link");
+            const offerClose = document.querySelector(".offer-modal__close");
+
+            if (!offerModal || !offerLink || !offerClose) {
+                return;
+            }
+
+            function openOffer(event) {
+                if (event) {
+                    event.preventDefault();
+                }
+
+                offerModal.classList.add("is-open");
+                offerModal.setAttribute("aria-hidden", "false");
+                document.body.classList.add("offer-modal-open");
+
+                const scrollArea =
+                    offerModal.querySelector(".offer-modal__scroll");
+
+                if (scrollArea) {
+                    scrollArea.scrollTop = 0;
+                }
+            }
+
+            function closeOffer() {
+                offerModal.classList.remove("is-open");
+                offerModal.setAttribute("aria-hidden", "true");
+                document.body.classList.remove("offer-modal-open");
+            }
+
+            offerLink.addEventListener("click", openOffer);
+            offerClose.addEventListener("click", closeOffer);
+
+            document.addEventListener("keydown", function (event) {
+                if (
+                    event.key === "Escape" &&
+                    offerModal.classList.contains("is-open")
+                ) {
+                    closeOffer();
+                }
+            });
+        })();
+    </script>
 
     <script src="js/script.js"></script>
 
